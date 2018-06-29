@@ -1,0 +1,8 @@
+{
+  "realm": "example",
+  "auth-server-url": "https://secure-sso-ionic-sso.1d35.starter-us-east-1.openshiftapps.com/auth",
+  "ssl-required": "external",
+  "resource": "cordova",
+  "public-client": true,
+  "confidential-port": 0
+}
