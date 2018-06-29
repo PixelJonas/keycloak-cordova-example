@@ -46,7 +46,10 @@
             "clientId": "cordova",
             "enabled": true,
             "publicClient": true,
-            "redirectUris": ["android-app://org.keycloak.examples.cordova/https/keycloak-cordova-example.github.io/login"],
+            "redirectUris": [
+              "android-app://org.keycloak.examples.cordova/https/keycloak-cordova-example.github.io/login",
+              "http://localhost"
+            ],
             "webOrigins": ["localhost"]
         }
     ],
