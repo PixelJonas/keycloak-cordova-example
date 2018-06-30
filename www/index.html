@@ -107,7 +107,11 @@
 </div>
 <div id="not-authenticated" style="display: none;">
     <div>
-        <button onclick="keycloak.login()">Log in</button>
+        <button onclick="keycloak.login({
+            adapter: 'cordova-native',
+            responseMode: 'query',
+            redirectUri: 'android-app://org.keycloak.examples.cordova/https/keycloak-cordova-example.github.io/login'
+        })">Log in</button>
     </div>
     <div>
         <p id="error">Not authenticated</p>
