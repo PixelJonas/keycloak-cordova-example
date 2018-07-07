@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.keycloak.examples.cordova2" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="org.keycloak.examples.cordova" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>2Keycloak Auth</name>
     <description>Keycloak Cordova Example</description>
     <author href="http://www.keycloak.org">Keycloak Team</author>
@@ -15,7 +15,8 @@
     <preference name="AndroidLaunchMode" value="singleTask" />
     <universal-links>
         <host name="keycloak-cordova-example.github.io" scheme="https">
-            <path event="keycloak" url="/login" />
+            <path event="login" url="/login" />
+            <path event="logout" url="/logout" />
         </host>
     </universal-links>
     <plugin name="cordova-plugin-browsertab" spec="~0.2.0" />

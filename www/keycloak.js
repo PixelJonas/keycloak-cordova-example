@@ -44,7 +44,6 @@
 
     kc.init = function (initOptions) {
       kc.authenticated = false;
-      alert(JSON.stringify(kc));
       callbackStorage = createCallbackStorage();
       var adapters = ['default', 'cordova', 'cordova-native'];
 
@@ -105,6 +104,11 @@
         if (initOptions.timeSkew != null) {
           kc.timeSkew = initOptions.timeSkew;
         }
+
+        if(initOptions.redirectUri) {
+          kc.redirectUri = initOptions.redirectUri;
+        }
+
       }
 
       if (!kc.responseMode) {
@@ -316,6 +320,7 @@
     kc.createAccountUrl = function(options) {
       var realm = getRealmUrl();
       var url = undefined;
+      console.log("[Keycloak.js] creating account URL: " + adapter.redirectUri(options) );
       if (typeof realm !== 'undefined') {
         url = realm
           + '/account'
@@ -1355,9 +1360,12 @@
           logout: function(options) {
             var promise = createPromise();
             var logoutUrl = kc.createLogoutUrl(options);
-
+            console.log("[KeyCloak.js: Logout called]");
+            console.log("[KeyCloak.js: LogoutURL: " + logoutUrl);
             universalLinks.subscribe('logout', function(event) {
+              console.log("[UniversalLinks]: Logout called");
               universalLinks.unsubscribe('logout');
+              kc.authenticated = false;
               window.cordova.plugins.browsertab.close();
               promise.setSuccess();
             });
